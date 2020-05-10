@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+	<properties>
+		<graphics key="showhiddenfeatures" value="true"/>
+		<graphics key="legendposition" value="672,61"/>
+		<graphics key="legendautolayout" value="false"/>
+		<graphics key="showshortnames" value="false"/>
+		<graphics key="layout" value="vertical"/>
+		<graphics key="showcollapsedconstraints" value="true"/>
+		<graphics key="legendhidden" value="false"/>
+		<graphics key="layoutalgorithm" value="4"/>
+	</properties>
+	<struct>
+		<and abstract="true" mandatory="true" name="Lains">
+			<and mandatory="true" name="Context">
+				<graphics key="collapsed" value="false"/>
+				<feature name="Date"/>
+				<feature mandatory="true" name="Preferences"/>
+				<and name="Location">
+					<graphics key="collapsed" value="false"/>
+					<feature mandatory="true" name="GPS"/>
+				</and>
+				<alt mandatory="true" name="Role">
+					<graphics key="collapsed" value="false"/>
+					<feature name="Veterinarian"/>
+					<feature name="DairyEnterprice"/>
+					<feature name="Farmer"/>
+					<feature name="Mayor"/>
+					<feature name="Governor"/>
+					<feature name="MilkCollector"/>
+				</alt>
+				<alt mandatory="true" name="Device">
+					<graphics key="collapsed" value="false"/>
+					<feature name="PC"/>
+					<feature name="Smartphone"/>
+				</alt>
+			</and>
+			<and mandatory="true" name="Functionality">
+				<graphics key="collapsed" value="false"/>
+				<and mandatory="true" name="Generics">
+					<graphics key="collapsed" value="false"/>
+					<and name="ContentManagement">
+						<graphics key="collapsed" value="false"/>
+						<feature name="UploadContent"/>
+						<feature name="DownloadContent"/>
+						<feature name="ViewContent"/>
+					</and>
+					<and mandatory="true" name="Authentication">
+						<graphics key="collapsed" value="false"/>
+						<feature mandatory="true" name="Login"/>
+						<feature mandatory="true" name="Register"/>
+					</and>
+					<and mandatory="true" name="Notification">
+						<graphics key="collapsed" value="false"/>
+						<feature mandatory="true" name="VisualAlert"/>
+						<feature name="Email"/>
+						<feature name="SMS"/>
+						<feature name="Telegram"/>
+					</and>
+					<feature name="CurrentConfigVisualization"/>
+				</and>
+				<and mandatory="true" name="DairyEcosystem">
+					<graphics key="collapsed" value="false"/>
+					<and mandatory="true" name="Profile">
+						<graphics key="collapsed" value="false"/>
+						<feature mandatory="true" name="PreferencesConfiguration"/>
+						<feature mandatory="true" name="ProfileInformation"/>
+					</and>
+					<and name="Events">
+						<graphics key="collapsed" value="false"/>
+						<feature name="CreateEvents"/>
+						<feature name="AttendEvents"/>
+					</and>
+					<and name="News">
+						<graphics key="collapsed" value="false"/>
+						<feature name="CreateNews"/>
+						<feature name="ConsultNews"/>
+					</and>
+					<and name="Routes">
+						<graphics key="collapsed" value="false"/>
+						<alt name="Tracking">
+							<feature name="FTracking"/>
+							<feature name="DTracking"/>
+						</alt>
+						<alt name="RoutesManagement">
+							<feature name="FRouteManagement"/>
+							<feature name="DRouteManagement"/>
+						</alt>
+						<feature name="ConsultRoutes"/>
+						<feature name="CollectionPoints"/>
+					</and>
+				</and>
+			</and>
+		</and>
+	</struct>
+	<constraints>
+		<rule>
+			<imp>
+				<var>Veterinarian</var>
+				<var>CreateEvents</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>Veterinarian</var>
+				<conj>
+					<not>
+						<var>UploadContent</var>
+					</not>
+					<conj>
+						<not>
+							<var>CreateNews</var>
+						</not>
+						<not>
+							<var>Routes</var>
+						</not>
+					</conj>
+				</conj>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>Mayor</var>
+				<conj>
+					<var>UploadContent</var>
+					<conj>
+						<var>CreateNews</var>
+						<var>CreateEvents</var>
+					</conj>
+				</conj>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>Mayor</var>
+				<not>
+					<var>Routes</var>
+				</not>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>Governor</var>
+				<conj>
+					<var>UploadContent</var>
+					<conj>
+						<var>CreateNews</var>
+						<var>CreateEvents</var>
+					</conj>
+				</conj>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>Governor</var>
+				<not>
+					<var>Routes</var>
+				</not>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>Farmer</var>
+				<conj>
+					<not>
+						<var>UploadContent</var>
+					</not>
+					<conj>
+						<not>
+							<var>CreateEvents</var>
+						</not>
+						<conj>
+							<not>
+								<var>CreateNews</var>
+							</not>
+							<conj>
+								<not>
+									<var>ConsultRoutes</var>
+								</not>
+								<not>
+									<var>CollectionPoints</var>
+								</not>
+							</conj>
+						</conj>
+					</conj>
+				</conj>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>DairyEnterprice</var>
+				<conj>
+					<not>
+						<var>ContentManagement</var>
+					</not>
+					<conj>
+						<not>
+							<var>News</var>
+						</not>
+						<conj>
+							<not>
+								<var>Events</var>
+							</not>
+							<conj>
+								<not>
+									<var>ConsultRoutes</var>
+								</not>
+								<not>
+									<var>CollectionPoints</var>
+								</not>
+							</conj>
+						</conj>
+					</conj>
+				</conj>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>MilkCollector</var>
+				<conj>
+					<not>
+						<var>ContentManagement</var>
+					</not>
+					<conj>
+						<not>
+							<var>News</var>
+						</not>
+						<conj>
+							<not>
+								<var>Events</var>
+							</not>
+							<conj>
+								<not>
+									<var>Tracking</var>
+								</not>
+								<not>
+									<var>RoutesManagement</var>
+								</not>
+							</conj>
+						</conj>
+					</conj>
+				</conj>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>Routes</var>
+				<var>Location</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>PC</var>
+				<conj>
+					<not>
+						<var>SMS</var>
+					</not>
+					<not>
+						<var>Telegram</var>
+					</not>
+				</conj>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<conj>
+					<var>Farmer</var>
+					<var>Tracking</var>
+				</conj>
+				<var>FTracking</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<conj>
+					<var>DairyEnterprice</var>
+					<var>Tracking</var>
+				</conj>
+				<var>DTracking</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<conj>
+					<var>Farmer</var>
+					<var>RoutesManagement</var>
+				</conj>
+				<var>FRouteManagement</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<conj>
+					<var>DairyEnterprice</var>
+					<var>RoutesManagement</var>
+				</conj>
+				<var>DRouteManagement</var>
+			</imp>
+		</rule>
+	</constraints>
+</featureModel>

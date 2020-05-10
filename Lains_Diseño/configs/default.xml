@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+	<feature automatic="selected" name="Lains"/>
+	<feature automatic="selected" name="Context"/>
+	<feature name="Date"/>
+	<feature automatic="selected" name="Preferences"/>
+	<feature automatic="selected" name="Location"/>
+	<feature automatic="selected" name="GPS"/>
+	<feature automatic="selected" name="Role"/>
+	<feature automatic="unselected" name="Veterinarian"/>
+	<feature automatic="unselected" name="DairyEnterprice"/>
+	<feature automatic="unselected" name="Farmer"/>
+	<feature automatic="unselected" name="Mayor"/>
+	<feature automatic="unselected" name="Governor"/>
+	<feature manual="selected" name="MilkCollector"/>
+	<feature automatic="selected" name="Device"/>
+	<feature manual="selected" name="PC"/>
+	<feature automatic="unselected" name="Smartphone"/>
+	<feature automatic="selected" name="Functionality"/>
+	<feature automatic="selected" name="Generics"/>
+	<feature automatic="unselected" name="ContentManagement"/>
+	<feature automatic="unselected" name="UploadContent"/>
+	<feature automatic="unselected" name="DownloadContent"/>
+	<feature automatic="unselected" name="ViewContent"/>
+	<feature automatic="selected" name="Authentication"/>
+	<feature automatic="selected" name="Login"/>
+	<feature automatic="selected" name="Register"/>
+	<feature automatic="selected" name="Notification"/>
+	<feature automatic="selected" name="VisualAlert"/>
+	<feature name="Email"/>
+	<feature automatic="unselected" name="SMS"/>
+	<feature automatic="unselected" name="Telegram"/>
+	<feature name="CurrentConfigVisualization"/>
+	<feature automatic="selected" name="DairyEcosystem"/>
+	<feature automatic="selected" name="Profile"/>
+	<feature automatic="selected" name="PreferencesConfiguration"/>
+	<feature automatic="selected" name="ProfileInformation"/>
+	<feature automatic="unselected" name="Events"/>
+	<feature automatic="unselected" name="CreateEvents"/>
+	<feature automatic="unselected" name="AttendEvents"/>
+	<feature automatic="unselected" name="News"/>
+	<feature automatic="unselected" name="CreateNews"/>
+	<feature automatic="unselected" name="ConsultNews"/>
+	<feature manual="selected" name="Routes"/>
+	<feature automatic="unselected" name="Tracking"/>
+	<feature automatic="unselected" name="FTracking"/>
+	<feature automatic="unselected" name="DTracking"/>
+	<feature automatic="unselected" name="RoutesManagement"/>
+	<feature automatic="unselected" name="FRouteManagement"/>
+	<feature automatic="unselected" name="DRouteManagement"/>
+	<feature name="ConsultRoutes"/>
+	<feature name="CollectionPoints"/>
+</configuration>
